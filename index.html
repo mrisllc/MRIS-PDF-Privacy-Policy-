@@ -19,51 +19,116 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.7;
-            color: var (--text-main);
-            background-color: var (--bg-light);
+            color: var(--text-main);
+            background-color: var(--bg-light);
             margin: 0;
             padding: 0;
         }
 
         .container {
-            max-width: 850 px;
-            margin: 40 px auto;
-            padding: 0 20 px;
+            max-width: 850px;
+            margin: 40px auto;
+            padding: 0 20px;
         }
 
         .lang-toggle-container {
             display: flex;
             justify-content: flex-end;
-            margin-bottom: 20 px;
-            gap: 10 px;
+            margin-bottom: 20px;
+            gap: 10px;
         }
 
         .btn-lang {
-            background-color: var (--card-bg);
-            border: 1 px solid var (--border);
-            padding: 8 px 16 px;
-            border-radius: 6 px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 8px 16px;
+            border-radius: 6px;
             cursor: pointer;
             font-weight: 600;
-            color: var (--text-main);
-            transition: all 0.2 s ease;
+            color: var(--text-main);
+            transition: all 0.2s ease;
         }
 
         .btn-lang:hover, .btn-lang.active {
-            background-color: var (--secondary);
+            background-color: var(--secondary);
             color: white;
-            border-color: var (--secondary);
+            border-color: var(--secondary);
         }
 
         .policy-card {
-            background: var (--card-bg);
-            border: 1 px solid var (--border);
-            border-radius: 12 px;
-            padding: 40 px;
-            box-shadow: 0 4 px 6 px -1 px rgba (0, 0, 0, 0.05);
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
         }
 
-        <button class="btn-lang" onclick="switchLang('en')">English</button>
+        .hidden {
+            display: none;
+        }
+
+        h1 {
+            color: var(--text-dark);
+            font-size: 2.2rem;
+            margin-top: 0;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 15px;
+        }
+
+        h3 {
+            color: var(--text-dark);
+            font-size: 1.3rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .last-updated {
+            font-style: italic;
+            color: #64748b;
+            margin-bottom: 25px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 15px;
+        }
+
+        strong {
+            color: var(--text-dark);
+        }
+
+        .highlight-box {
+            background-color: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            color: #166534;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    
+    <!-- Language Toggle Buttons -->
+    <div class="lang-toggle-container">
+        <button id="btn-bn" class="btn-lang active" onclick="switchLang('bn')">বাংলা</button>
+        <button id="btn-en" class="btn-lang" onclick="switchLang('en')">English</button>
     </div>
 
     <!-- Bangla Privacy Policy -->
@@ -73,7 +138,7 @@
         
         <p><strong>MRIS PDF</strong>-এ আমরা আপনার তথ্যের গোপনীয়তাকে সর্বোচ্চ অগ্রাধিকার দিই। আপনার ব্যক্তিগত তথ্যের নিরাপত্তা নিশ্চিত করতে আমাদের পুরো অ্যাপ্লিকেশনটি একটি স্বচ্ছ এবং নিরাপদ অবকাঠামোতে কাজ করে। এই নীতিটি <strong>MRIS Terms</strong>-এর পক্ষ থেকে পরিচালনা করা হচ্ছে। আমাদের অ্যাপ্লিকেশনটি আপনার ডেটা কীভাবে পরিচালনা করে এবং কেন সুনির্দিষ্ট কিছু পারমিশন ব্যবহার করে, তা নিচে বিস্তারিত দেওয়া হলো:</p>
 
-        <h3>১. সম্পূর্ণ সার্ভারহীন অবকাঠামো ও局部 স্টোরেজ</h3>
+        <h3>১. সম্পূর্ণ সার্ভারহীন অবকাঠামো ও লোকাল স্টোরেজ</h3>
         <ul>
             <li><strong>সার্ভারমুক্ত পলিসি:</strong> আমরা একটি কঠোর জিরো-সার্ভার (Zero-Server) নীতি মেনে চলি। আপনার প্রসেস করা কোনো পিডিএফ ডকুমেন্ট, ক্যামেরা দিয়ে তোলা ছবি, ভেতরের টেক্সট বা আপনার ব্যবহারের ইতিহাস আমরা কোনো অনলাইন ক্লাউড সার্ভারে সংগ্রহ, ট্র্যাক বা আপলোড করি না।</li>
             <li><strong>ডিভাইস নিরাপত্তা:</strong> ফাইলের সমস্ত প্রসেসিং সম্পূর্ণভাবে আপনার ডিভাইসের নিজস্ব সুরক্ষিত স্যান্ডবক্স মেমোরিতে (Locally) সম্পন্ন হয়। অ্যাপের ডেটা ক্লিয়ার করলে বা অ্যাপটি আনইন্সটল করলে সমস্ত তথ্য চিরতরে মুছে যাবে।</li>
@@ -94,7 +159,7 @@
 
         <h3>৪. কাস্টমার সাপোর্ট এবং যোগাযোগ সুরক্ষা</h3>
         <ul>
-            <li><strong>তথ্য সুরক্ষা:</strong> অ্যাপের যেকোনো সমস্যা বা মতামতের জন্য আমাদের অফিশিয়াল ইমেইল আইডি (<strong> contact.mrisll@gmail.com </strong>)-এর মাধ্যমে আমাদের সাথে যোগাযোগ করা হলে, সেই যোগাযোগ অত্যন্ত গোপনীয় রাখা হয়।</li>
+            <li><strong>তথ্য সুরক্ষা:</strong> অ্যাপের যেকোনো সমস্যা বা মতামতের জন্য আমাদের অফিশিয়াল ইমেইল আইডি (<strong>contact.mrisllc@gmail.com</strong>)-এর মাধ্যমে আমাদের সাথে যোগাযোগ করা হলে, সেই যোগাযোগ অত্যন্ত গোপনীয় রাখা হয়।</li>
             <li><strong>তৃতীয় পক্ষের কাছে ডেটা শেয়ার না করা:</strong> ইমেইলের মাধ্যমে শেয়ার করা তথ্যগুলো শুধুমাত্র আপনাকে ওয়ান-টু-ওয়ান কাস্টমার সাপোর্ট বা বাগ (Bug) ফিক্সিংয়ের কাজে ব্যবহার করা হয় এবং তা কোনো বাণিজ্যিক উদ্দেশ্যে কখনোই কোনো তৃতীয় পক্ষের (Third-party) কাছে বিক্রি বা হস্তান্তর করা হয় না।</li>
         </ul>
     </div>
@@ -108,7 +173,7 @@
 
         <h3>1. Complete Serverless Architecture & Local Storage</h3>
         <ul>
-            <li><strong>Zero-Server Infrastructure:</strong> We enforce a strict zero-server policy. We do <strong> no</strong> host external cloud databases to collect, extract, intercept, monitor, or upload your processed PDF documents, captured camera images, extracted texts, or private user behavior logs.</li>
+            <li><strong>Zero-Server Infrastructure:</strong> We enforce a strict zero-server policy. We do <strong>not</strong> host external cloud databases to collect, extract, intercept, monitor, or upload your processed PDF documents, captured camera images, extracted texts, or private user behavior logs.</li>
             <li><strong>Local Processing:</strong> Every file modification, rendering sequence, or conversion happens strictly within your device's localized secure sandbox environment. Uninstalling or clearing the app data permanently and irreversibly deletes all configurations and records.</li>
         </ul>
 
@@ -134,26 +199,31 @@
 
     <!-- Copyright Footer -->
     <footer>
-        <p> ©copyright; 2026 MRIS Terms. All Rights MRIS Teams সর্বস্বত্ব সংরক্ষিত।</p>
+        <p>&copy; 2026 MRIS Terms. All Rights Reserved.</p>
     </footer>
 </div>
 
 <script>
     function switchLang(lang) {
-        const buttons = document.querySelectorAll('.btn-lang');
-        buttons.forEach(btn => btn.classList.remove('active'));
+        const btnBn = document.getElementById('btn-bn');
+        const btnEn = document.getElementById('btn-en');
+        const policyBn = document.getElementById('policy-bn');
+        const policyEn = document.getElementById('policy-en');
         
         if(lang === 'bn') {
-            document.getElementById('policy-bn').classList.remove('hidden');
-            document.getElementById('policy-en').classList.add('hidden');
-            event.target.classList.add('active');
+            policyBn.classList.remove('hidden');
+            policyEn.classList.add('hidden');
+            btnBn.classList.add('active');
+            btnEn.classList.remove('active');
         } else {
-            document.getElementById('policy-en').classList.remove('hidden');
-            document.getElementById('policy-bn').classList.add('hidden');
-            event.target.classList.add('active');
+            policyEn.classList.remove('hidden');
+            policyBn.classList.add('hidden');
+            btnEn.classList.add('active');
+            btnBn.classList.remove('active');
         }
     }
 </script>
 
 </body>
-</html>
+                                                           </html>
+                                                           
