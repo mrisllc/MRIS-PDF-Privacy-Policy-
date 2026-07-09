@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,11 +8,9 @@
         :root {
             --primary: #0f172a;
             --secondary: #2563eb;
-            --accent: #3b82f6;
             --text-main: #334155;
             --text-dark: #0f172a;
             --bg-light: #f8fafc;
-            --card-bg: #ffffff;
             --border: #e2e8f0;
         }
 
@@ -31,40 +29,8 @@
             padding: 0 20px;
         }
 
-        .lang-toggle-container {
-            display: flex;
-            justify-content: flex-end;
-            margin-bottom: 20px;
-            gap: 10px;
-        }
-
-        .btn-lang {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border);
-            padding: 8px 16px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 600;
-            color: var(--text-main);
-            transition: all 0.2s ease;
-        }
-
-        .btn-lang:hover, .btn-lang.active {
-            background-color: var(--secondary);
-            color: white;
-            border-color: var(--secondary);
-        }
-
-        .policy-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 40px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-        }
-
-        .hidden {
-            display: none;
+        .policy-section {
+            margin-bottom: 50px;
         }
 
         h1 {
@@ -111,9 +77,15 @@
             color: #166534;
         }
 
+        .section-divider {
+            height: 2px;
+            background-color: var(--border);
+            margin: 50px 0;
+        }
+
         footer {
             text-align: center;
-            margin-top: 40px;
+            margin-top: 60px;
             padding-top: 20px;
             border-top: 1px solid var(--border);
             font-size: 0.9rem;
@@ -125,14 +97,44 @@
 
 <div class="container">
     
-    <!-- Language Toggle Buttons -->
-    <div class="lang-toggle-container">
-        <button id="btn-bn" class="btn-lang active" onclick="switchLang('bn')">বাংলা</button>
-        <button id="btn-en" class="btn-lang" onclick="switchLang('en')">English</button>
+    <!-- ==================== ENGLISH VERSION ==================== -->
+    <div class="policy-section">
+        <h1>Privacy Policy</h1>
+        <p class="last-updated">Last Updated: July 2026</p>
+        
+        <p>At <strong>MRIS PDF</strong>, user privacy is paramount. Provided and governed by <strong>MRIS Terms</strong>, our data ecosystem functions under a transparent, serverless architecture to protect your personal integrity. This Privacy Policy outlines how our application collects, uses, and safeguards your information and handles system permissions.</p>
+
+        <h3>1. Complete Serverless Architecture & Local Storage</h3>
+        <ul>
+            <li><strong>Zero-Server Infrastructure:</strong> We enforce a strict zero-server policy. We do <strong>not</strong> host external cloud databases to collect, extract, intercept, monitor, or upload your processed PDF documents, captured camera images, extracted texts, or private user behavior logs.</li>
+            <li><strong>Local Processing:</strong> Every file modification, rendering sequence, or conversion happens strictly within your device's localized secure sandbox environment. Uninstalling or clearing the app data permanently and irreversibly deletes all configurations and records.</li>
+        </ul>
+
+        <h3>2. Device Permissions Required & Their Purpose</h3>
+        <p>To deliver its core document utilities, the application requests specific hardware and operating system permissions. These permissions are used strictly for localized functionalities:</p>
+        <ul>
+            <li><strong>File and Storage Access Permission:</strong> Essential for loading, scanning, modifying, converting, and securely saving PDF and media assets locally within your smartphone's storage environment.</li>
+            <li><strong>Camera Permission:</strong> Required to capture high-resolution images of physical paper documents, receipts, or notes directly through the in-app scanner component to dynamically convert them into digital PDF files.</li>
+            <li><strong>Notification Permission (Android 13+):</strong> Critical for providing real-time system tray alerts, completion flags, and progress updates for heavy background processing routines, such as bulk PDF conversions or large file compressions.</li>
+        </ul>
+
+        <h3>3. Optional Cloud Backup (Firebase Cloud Backup)</h3>
+        <div class="highlight-box">
+            <strong>Firebase Backup Feature:</strong> For data preservation, users may optionally choose to sign in with their Google/Gmail account to store encrypted file backups securely using <strong>Firebase</strong>. This backed-up dataset remains exclusively tied to the user's personal identity and cannot be accessed or viewed by <strong>MRIS Terms</strong> or any third-party entity.
+        </div>
+
+        <h3>4. Customer Support Protection</h3>
+        <ul>
+            <li><strong>Data Safeguard:</strong> Any interactive technical inquiries or bug reports routed directly to our designated customer support desk via <strong>contact.mrisllc@gmail.com</strong> are preserved with absolute confidentiality.</li>
+            <li><strong>No Third-Party Sharing:</strong> Information transmitted within these inquiries is strictly used to troubleshoot technical challenges on a precise one-on-one basis and will never be shared, leased, or sold to third-party advertising or analytics networks.</li>
+        </ul>
     </div>
 
-    <!-- Bangla Privacy Policy -->
-    <div id="policy-bn" class="policy-card">
+    <!-- Visual Divider Between Languages -->
+    <div class="section-divider"></div>
+
+    <!-- ==================== BANGLA VERSION ==================== -->
+    <div class="policy-section">
         <h1>গোপনীয়তা নীতি (Privacy Policy)</h1>
         <p class="last-updated">সর্বশেষ পরিমার্জন: জুলাই ২০২৬</p>
         
@@ -164,66 +166,11 @@
         </ul>
     </div>
 
-    <!-- English Privacy Policy -->
-    <div id="policy-en" class="policy-card hidden">
-        <h1>Privacy Policy (MRIS PDF)</h1>
-        <p class="last-updated">Last Updated: July 2026</p>
-        
-        <p>At <strong>MRIS PDF</strong>, user privacy is paramount. Provided and governed by <strong>MRIS Terms</strong>, our data ecosystem functions under a transparent, serverless architecture to protect your personal integrity. This Privacy Policy outlines how our application collects, uses, and safeguards your information and handles system permissions.</p>
-
-        <h3>1. Complete Serverless Architecture & Local Storage</h3>
-        <ul>
-            <li><strong>Zero-Server Infrastructure:</strong> We enforce a strict zero-server policy. We do <strong>not</strong> host external cloud databases to collect, extract, intercept, monitor, or upload your processed PDF documents, captured camera images, extracted texts, or private user behavior logs.</li>
-            <li><strong>Local Processing:</strong> Every file modification, rendering sequence, or conversion happens strictly within your device's localized secure sandbox environment. Uninstalling or clearing the app data permanently and irreversibly deletes all configurations and records.</li>
-        </ul>
-
-        <h3>2. Device Permissions Required & Their Purpose</h3>
-        <p>To deliver its core document utilities, the application requests specific hardware and operating system permissions. These permissions are used strictly for localized functionalities:</p>
-        <ul>
-            <li><strong>File and Storage Access Permission:</strong> Essential for loading, scanning, modifying, converting, and securely saving PDF and media assets locally within your smartphone's storage environment.</li>
-            <li><strong>Camera Permission:</strong> Required to capture high-resolution images of physical paper documents, receipts, or notes directly through the in-app scanner component to dynamically convert them into digital PDF files.</li>
-            <li><strong>Notification Permission (Android 13+):</strong> Critical for providing real-time system tray alerts, completion flags, and progress updates for heavy background processing routines, such as bulk PDF conversions or large file compressions.</li>
-        </ul>
-
-        <h3>3. Optional Cloud Backup (Firebase Cloud Backup)</h3>
-        <div class="highlight-box">
-            <strong>Firebase Backup Feature:</strong> For data preservation, users may optionally choose to sign in with their Google/Gmail account to store encrypted file backups securely using <strong>Firebase</strong>. This backed-up dataset remains exclusively tied to the user's personal identity and cannot be accessed or viewed by <strong>MRIS Terms</strong> or any third-party entity.
-        </div>
-
-        <h3>4. Customer Support Protection</h3>
-        <ul>
-            <li><strong>Data Safeguard:</strong> Any interactive technical inquiries or bug reports routed directly to our designated customer support desk via <strong>contact.mrisllc@gmail.com</strong> are preserved with absolute confidentiality.</li>
-            <li><strong>No Third-Party Sharing:</strong> Information transmitted within these inquiries is strictly used to troubleshoot technical challenges on a precise one-on-one basis and will never be shared, leased, or sold to third-party advertising or analytics networks.</li>
-        </ul>
-    </div>
-
     <!-- Copyright Footer -->
     <footer>
-        <p>&copy; 2026 MRIS Terms. All Rights Reserved.</p>
+        <p> © copyright 2026 MRIS Terms. All Rights Reserved. MRIS terms সর্বস্বত্ব সংরক্ষিত।</p>
     </footer>
 </div>
 
-<script>
-    function switchLang(lang) {
-        const btnBn = document.getElementById('btn-bn');
-        const btnEn = document.getElementById('btn-en');
-        const policyBn = document.getElementById('policy-bn');
-        const policyEn = document.getElementById('policy-en');
-        
-        if(lang === 'bn') {
-            policyBn.classList.remove('hidden');
-            policyEn.classList.add('hidden');
-            btnBn.classList.add('active');
-            btnEn.classList.remove('active');
-        } else {
-            policyEn.classList.remove('hidden');
-            policyBn.classList.add('hidden');
-            btnEn.classList.add('active');
-            btnBn.classList.remove('active');
-        }
-    }
-</script>
-
 </body>
-                                                           </html>
-                                                           
+</html>
